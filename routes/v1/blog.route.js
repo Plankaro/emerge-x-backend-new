@@ -12,7 +12,7 @@ router
   .route("/:id")
   .get(blogValidation.blogIdValidation, blogController.getBlog)
   .put(
-    blogValidation.blogIdValidation,
+    // blogValidation.blogIdValidation,
     blogValidation.updateBlogValidation,
     blogController.updateBlog
   )

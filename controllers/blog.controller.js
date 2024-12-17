@@ -71,6 +71,8 @@ const updateBlog = async (req, res) => {
         .json({ message: "Error Update blog data", errors: errors.array() });
     }
     const blogId = req.params.id;
+
+    console.log("🚀 ~ updateBlog ~ req:", req)
     const updatedBlog = await blogService.updateBlog(blogId, req.body);
 
     if (!updatedBlog) {

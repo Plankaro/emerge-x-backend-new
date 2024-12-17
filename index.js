@@ -21,7 +21,7 @@ app.options("*", cors());
 app.use(morgan("tiny"));
 // app.use(AuthJwt());
 app.use(cookieParser());
-app.use(AuthJwt());
+// app.use(AuthJwt());
 app.use(errorHandler);
 app.use("/v1", routes);
 // app.use(errorHandler);

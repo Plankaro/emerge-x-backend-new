@@ -4,8 +4,7 @@ const { default: mongoose } = require("mongoose");
 
 const createBlog = async (newsBody) => {
   try {
-    const { htmlBody, bannerImage, futureImages, title, description } =
-      newsBody;
+    const { htmlBody, bannerImage, futureImages, title, description } = newsBody;
     const bannerImageUrl = await UploadBase64Image(bannerImage);
     console.log(bannerImageUrl);
     const futureImagesUrl = await UploadBase64Image(futureImages);
@@ -36,8 +35,7 @@ const countBlog = async () => {
 
 const updateBlog = async (id, updateBody) => {
   try {
-    const { htmlBody, bannerImage, futureImages, description, title } =
-      updateBody;
+    const { htmlBody, bannerImage, futureImages, description, title } = updateBody;
     const blog = await Blog.findById(id);
     let newBannerImage = blog.bannerImage;
     let newFutureImages = blog.futureImages;
@@ -51,6 +49,8 @@ const updateBlog = async (id, updateBody) => {
       newBannerImage = image.ImageURl;
       await DeleteFile(blog.futureImages.split(".com/")[1]);
     }
+
+    console.log("🚀 ~ updateBlog ~ updateBody:", updateBody)
     return await Blog.findByIdAndUpdate(
       id,
       {
