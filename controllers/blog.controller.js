@@ -62,6 +62,8 @@ const getBlog = async (req, res) => {
   }
 };
 
+
+
 const updateBlog = async (req, res) => {
   try {
     const errors = validationResult(req);
